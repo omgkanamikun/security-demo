@@ -1,4 +1,4 @@
-package ua.kondratenko.demo.model;
+package ua.kondratenko.demo.domain.model;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -6,8 +6,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static java.util.Set.of;
-import static ua.kondratenko.demo.model.Permission.DEVELOPERS_READ;
-import static ua.kondratenko.demo.model.Permission.DEVELOPERS_WRITE;
+import static ua.kondratenko.demo.domain.model.Permission.DEVELOPERS_READ;
+import static ua.kondratenko.demo.domain.model.Permission.DEVELOPERS_WRITE;
 
 public enum Role {
 

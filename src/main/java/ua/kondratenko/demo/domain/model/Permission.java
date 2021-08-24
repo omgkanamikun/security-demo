@@ -1,4 +1,4 @@
-package ua.kondratenko.demo.model;
+package ua.kondratenko.demo.domain.model;
 
 public enum Permission {
 

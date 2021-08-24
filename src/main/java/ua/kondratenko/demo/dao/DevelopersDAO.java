@@ -1,6 +1,6 @@
 package ua.kondratenko.demo.dao;
 
-import ua.kondratenko.demo.model.Developer;
+import ua.kondratenko.demo.domain.model.Developer;
 
 import java.util.Set;
 

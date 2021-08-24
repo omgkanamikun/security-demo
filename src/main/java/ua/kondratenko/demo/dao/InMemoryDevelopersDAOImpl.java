@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import ua.kondratenko.demo.exception.DeveloperAlreadyExists;
 import ua.kondratenko.demo.exception.DeveloperNotFoundException;
-import ua.kondratenko.demo.model.Developer;
+import ua.kondratenko.demo.domain.model.Developer;
 
 import java.util.HashSet;
 import java.util.Set;

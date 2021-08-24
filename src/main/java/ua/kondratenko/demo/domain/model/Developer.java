@@ -1,4 +1,4 @@
-package ua.kondratenko.demo.model;
+package ua.kondratenko.demo.domain.model;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;

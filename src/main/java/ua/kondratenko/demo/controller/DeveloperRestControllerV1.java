@@ -1,13 +1,14 @@
-package ua.kondratenko.demo.rest;
+package ua.kondratenko.demo.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import ua.kondratenko.demo.dao.DevelopersDAO;
-import ua.kondratenko.demo.model.Developer;
+import ua.kondratenko.demo.domain.model.Developer;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -23,6 +24,7 @@ public class DeveloperRestControllerV1 {
     private final DevelopersDAO developersDAO;
 
     @GetMapping
+    @PreAuthorize("hasAuthority('developers:read')")
     public Set<Developer> getAll() {
         var developers = developersDAO.findAll();
         log.info("found {} developers", developers.size());
@@ -30,12 +32,14 @@ public class DeveloperRestControllerV1 {
     }
 
     @GetMapping(path = "/{id}")
+    @PreAuthorize("hasAuthority('developers:read')")
     public Developer getById(@PathVariable(name = "id") Long id) {
         log.info("called getById method with id: {}", id);
         return developersDAO.findById(id);
     }
 
     @PostMapping
+    @PreAuthorize("hasAuthority('developers:write')")
     public Developer save(@Valid @RequestBody Developer developer) {
         var inDB = developersDAO.save(developer);
         log.info("saved new developer: {}", developer);
@@ -43,6 +47,7 @@ public class DeveloperRestControllerV1 {
     }
 
     @DeleteMapping(path = "/{id}")
+    @PreAuthorize("hasAuthority('developers:write')")
     public void deleteById(@PathVariable(name = "id") Long id) {
         developersDAO.deleteById(id);
         log.info("deleted developer with id: {}", id);
